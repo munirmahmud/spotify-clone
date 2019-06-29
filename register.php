@@ -1,5 +1,6 @@
 <?php 
 include_once('inc/classes/Account.php');
+include_once('inc/classes/Constants.php');
 $account = new Account();
 
 include_once('inc/handlers/register-handler.php');
@@ -40,23 +41,23 @@ include_once('inc/handlers/login-handler.php');
 					<div class="form-group">
 						<label for="username" class="sr-only">User Name</label>
 						<input type="text" class="form-control" name="username" id="username" placeholder="e.g. munirmahmud">
-						<?php echo $account->getError('Your username must be between 5 and 25 characters'); ?>
+						<?php echo $account->getError(Constants::$userNameCharacters); ?>
 					</div>
 					<div class="form-group">
 						<label for="firstName" class="sr-only">First Name</label>
 						<input type="text" class="form-control" name="firstName" id="firstName" placeholder="e.g. Munir">
-						<?php echo $account->getError('Your first name must be between 2 and 25 characters'); ?>
+						<?php echo $account->getError(Constants::$firstNameCharacters); ?>
 					</div>
 					<div class="form-group">
 						<label for="lastName" class="sr-only">Last Name</label>
 						<input type="text" class="form-control" name="lastName" id="lastName" placeholder="e.g. Mahmud">
-						<?php echo $account->getError('Your last name must be between 2 and 25 characters'); ?>
+						<?php echo $account->getError(Constants::$lastNameCharacters); ?>
 					</div>
 					<div class="form-group">
 						<label for="email" class="sr-only">Email</label>
 						<input type="email" class="form-control" name="email" id="email" placeholder="e.g. munir@gmail.com">
-						<?php echo $account->getError('Your emails dont\'t match.'); ?>
-						<?php echo $account->getError('Your email is invalid.'); ?>
+						<?php echo $account->getError(Constants::$emailsDoNotMatch); ?>
+						<?php echo $account->getError(Constants::$invalidEmail); ?>
 					</div>
 					<div class="form-group">
 						<label for="email2" class="sr-only">Confirm Email</label>
@@ -65,9 +66,9 @@ include_once('inc/handlers/login-handler.php');
 					<div class="form-group">
 						<label for="password" class="sr-only">Password</label>
 						<input type="password" class="form-control" name="password" id="password" placeholder="Password">
-						<?php echo $account->getError('Your passwords dont\'t match.'); ?>
-						<?php echo $account->getError('Your password may only contain numbers and letters.'); ?>
-						<?php echo $account->getError('Your password must be at least 5 characters'); ?>
+						<?php echo $account->getError(Constants::$passwordsDoNotMatch); ?>
+						<?php echo $account->getError(Constants::$passwordCharacters); ?>
+						<?php echo $account->getError(Constants::$passwordMinCharacters); ?>
 					</div>
 					<div class="form-group">
 						<label for="password2" class="sr-only">Password</label>
