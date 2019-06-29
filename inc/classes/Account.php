@@ -27,6 +27,15 @@ class Account
 		}
     }
 
+    public function getError($error)
+    {
+    	if (!in_array($error, $this->errorArray)) {
+    		$error = '';
+    	} else {
+    		return "<span class='alert alert-danger'>{$error}</span>";
+    	}
+    }
+
 	// Form validation
 	private function validateUsername($un) {
 		if (strlen($un) > 25 || strlen($un) < 3) {
