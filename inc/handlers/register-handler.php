@@ -1,7 +1,7 @@
 <?php 
 	function sanitizeFormUsername($inputText) {
 		$inputText = strip_tags($inputText);
-		$inputText = str_replace(" ", "", $inputText);
+		$inputText = str_replace(" ", "", strtolower($inputText));
 		return $inputText;
 	}
 
@@ -26,14 +26,16 @@
 
 	if (isset($_POST['registerButton'])) {
 		$username = sanitizeFormUsername($_POST['username']);
-		$firstName = sanitizeFormString($_POST['firstName']);		
-		$lastName = sanitizeFormString($_POST['lastName']);
+		$firstName = sanitizeFormString($_POST['firstname']);		
+		$lastName = sanitizeFormString($_POST['lastname']);
 		$email = sanitizeFormEmail($_POST['email']);
 		$email2 = sanitizeFormEmail($_POST['email2']);
 		$password = sanitizeFormPassword($_POST['password']);
 		$password2 = sanitizeFormPassword($_POST['password2']);
 
 		$success = $account->register($username, $firstName, $lastName, $email, $email2, $password, $password2);
-		echo $success;
+		if ($success) {
+			header("Location: index.php");
+		}
 	}
 ?>

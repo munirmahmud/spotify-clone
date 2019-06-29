@@ -4,10 +4,12 @@
 */
 class Account
 {
+	private $conn;
 	private $errorArray = [];
 
-    public function __construct() 
+    public function __construct($conn) 
     {
+    	$this->conn = $conn;
     	$this->errorArray;    
     }
 
@@ -21,7 +23,7 @@ class Account
 		$this->validatePassword($pw, $pw2);
 
 		if (empty($this->errorArray)) {
-			return 'Successfullly inserted';
+			return $this->insertUserDetails($un, $fn, $ln, $em, $pw);
 		} else {
 			return 'Something Error happend';
 		}
@@ -34,6 +36,15 @@ class Account
     	} else {
     		return "<span class='alert alert-danger'>{$error}</span>";
     	}
+    }
+
+    private function insertUserDetails($un, $fn, $ln, $em, $pw)
+    {
+    	$password = password_hash($pw, PASSWORD_BCRYPT);
+    	$profile_pic = 'assets/images/profile-pics/user-profile-pic.png';
+    	$sql = "INSERT INTO users VALUES('', '$un', '$fn', '$ln', '$em', '$password', Now(), '$profile_pic')";
+    	$result = mysqli_query($this->conn, $sql);
+    	return $result;
     }
 
 	// Form validation

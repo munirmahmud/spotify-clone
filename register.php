@@ -40,13 +40,13 @@ include_once('inc/bootstrap.php');
 						<?php echo $account->getError(ErrorMessage::$userNameCharacters); ?>
 					</div>
 					<div class="form-group">
-						<label for="firstName" class="sr-only">First Name</label>
-						<input type="text" class="form-control" name="firstName" id="firstName" placeholder="e.g. Munir" value="<?php getInputValue('firstName'); ?>">
+						<label for="firstname" class="sr-only">First Name</label>
+						<input type="text" class="form-control" name="firstname" id="firstname" placeholder="e.g. Munir" value="<?php getInputValue('firstname'); ?>">
 						<?php echo $account->getError(ErrorMessage::$firstNameCharacters); ?>
 					</div>
 					<div class="form-group">
-						<label for="lastName" class="sr-only">Last Name</label>
-						<input type="text" class="form-control" name="lastName" id="lastName" placeholder="e.g. Mahmud" value="<?php getInputValue('lastName'); ?>">
+						<label for="lastname" class="sr-only">Last Name</label>
+						<input type="text" class="form-control" name="lastname" id="lastname" placeholder="e.g. Mahmud" value="<?php getInputValue('lastname'); ?>">
 						<?php echo $account->getError(ErrorMessage::$lastNameCharacters); ?>
 					</div>
 					<div class="form-group">
