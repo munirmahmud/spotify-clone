@@ -1,3 +1,8 @@
+<?php 
+include_once('inc/handlers/register-handler.php');
+include_once('inc/handlers/login-handler.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,23 +36,23 @@
 					<h2>Create your free account</h2>
 					<div class="form-group">
 						<label for="username" class="sr-only">User Name</label>
-						<input type="text" class="form-control" name="username" id="username" placeholder="e.g. munirmahmud" required>
+						<input type="text" class="form-control" name="username" id="username" placeholder="e.g. munirmahmud">
 					</div>
 					<div class="form-group">
 						<label for="firstName" class="sr-only">First Name</label>
-						<input type="text" class="form-control" name="firstName" id="firstName" placeholder="e.g. Munir" required>
+						<input type="text" class="form-control" name="firstName" id="firstName" placeholder="e.g. Munir">
 					</div>
 					<div class="form-group">
 						<label for="lastName" class="sr-only">Last Name</label>
-						<input type="text" class="form-control" name="lastName" id="lastName" placeholder="e.g. Mahmud" required>
+						<input type="text" class="form-control" name="lastName" id="lastName" placeholder="e.g. Mahmud">
 					</div>
 					<div class="form-group">
 						<label for="email" class="sr-only">Email</label>
-						<input type="email" class="form-control" name="email" id="email" placeholder="e.g. munir@gmail.com" required>
+						<input type="email" class="form-control" name="email" id="email" placeholder="e.g. munir@gmail.com">
 					</div>
 					<div class="form-group">
 						<label for="email2" class="sr-only">Confirm Email</label>
-						<input type="email" class="form-control" name="email2" id="email2" placeholder="e.g. munir@gmail.com" required>
+						<input type="email" class="form-control" name="email2" id="email2" placeholder="e.g. munir@gmail.com">
 					</div>
 					<div class="form-group">
 						<label for="password" class="sr-only">Password</label>
