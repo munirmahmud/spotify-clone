@@ -1,4 +1,7 @@
 <?php 
+include_once('inc/classes/Account.php');
+$account = new Account();
+
 include_once('inc/handlers/register-handler.php');
 include_once('inc/handlers/login-handler.php');
 ?>

@@ -22,22 +22,7 @@
 		return $inputText;
 	}
 
-// Form validation
-	function validateUsername($un) {
-		
-	}
-	function validateFirstName($fn) {
-		
-	}
-	function validateLastName($ln) {
-		
-	}
-	function validateEmail($em, $em2) {
-		
-	}
-	function validatePassword($pw, $pw2) {
-		
-	}
+
 
 	if (isset($_POST['registerButton'])) {
 		$username = sanitizeFormUsername($_POST['username']);
@@ -48,11 +33,7 @@
 		$password = sanitizeFormPassword($_POST['password']);
 		$password2 = sanitizeFormPassword($_POST['password2']);
 
-		// Set variable to validate form data
-		validateUsername($username);
-		validateFirstName($firstName);
-		validateLastName($lastName);
-		validateEmail($email, $email2);
-		validatePassword($password, $password2);
+		$success = $account->register($username, $firstName, $lastName, $email, $email2, $password, $password2);
+		echo $success;
 	}
 ?>
