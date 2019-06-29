@@ -38,6 +38,7 @@ include_once('inc/bootstrap.php');
 						<label for="username" class="sr-only">User Name</label>
 						<input type="text" class="form-control" name="username" id="username" placeholder="e.g. munirmahmud" value="<?php getInputValue('username'); ?>">
 						<?php echo $account->getError(ErrorMessage::$userNameCharacters); ?>
+						<?php echo $account->getError(ErrorMessage::$userNameExist); ?>
 					</div>
 					<div class="form-group">
 						<label for="firstname" class="sr-only">First Name</label>
@@ -54,6 +55,7 @@ include_once('inc/bootstrap.php');
 						<input type="email" class="form-control" name="email" id="email" placeholder="e.g. munir@gmail.com" value="<?php getInputValue('email'); ?>">
 						<?php echo $account->getError(ErrorMessage::$emailsDoNotMatch); ?>
 						<?php echo $account->getError(ErrorMessage::$invalidEmail); ?>
+						<?php echo $account->getError(ErrorMessage::$emailExist); ?>
 					</div>
 					<div class="form-group">
 						<label for="email2" class="sr-only">Confirm Email</label>

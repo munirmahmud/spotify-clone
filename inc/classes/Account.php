@@ -5,12 +5,12 @@
 class Account
 {
 	private $conn;
-	private $errorArray = [];
+	private $errorArray;
 
     public function __construct($conn) 
     {
     	$this->conn = $conn;
-    	$this->errorArray;    
+    	$this->errorArray = [];    
     }
 
     public function register($un, $fn, $ln, $em, $em2, $pw, $pw2)
@@ -53,7 +53,13 @@ class Account
 			array_push($this->errorArray, ErrorMessage::$userNameCharacters);
 			return;
 		}
-		// TODO: check if the username already exists
+		//check if the username already exists
+		$sql = "SELECT username FROM users WHERE username = '$un'";
+		$checkUsername = mysqli_query($this->conn, $sql);
+		if (mysqli_num_rows($checkUsername) != 0) {
+			var_dump( array_push($this->errorArray, ErrorMessage::$userNameExist));
+			return;
+		}
 	}
 	private function validateFirstName($fn) {
 		if (strlen($fn) > 25 || strlen($fn) < 2) {
@@ -67,6 +73,7 @@ class Account
 			return;
 		}
 	}
+
 	private function validateEmail($em, $em2) {
 		if ($em != $em2) {
 			array_push($this->errorArray, ErrorMessage::$emailsDoNotMatch);
@@ -76,8 +83,15 @@ class Account
 			array_push($this->errorArray, ErrorMessage::$invalidEmail);
 			return;
 		}
-		//TODO: check if the email is already exists
+		// check if the email is already exists
+		$sql = "SELECT email FROM users WHERE email = '$em'";
+		$checkEmail = mysqli_query($this->conn, $sql);
+		if (mysqli_num_rows($checkEmail) != 0) {
+			array_push($this->errorArray, ErrorMessage::$emailExist);
+			return;
+		}
 	}
+
 	private function validatePassword($pw, $pw2) {
 		if ($pw != $pw2) {
 			array_push($this->errorArray, ErrorMessage::$passwordsDoNotMatch);
