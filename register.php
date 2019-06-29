@@ -22,7 +22,8 @@ include_once('inc/bootstrap.php');
 					<h2>Login to your account</h2>
 					<div class="form-group">
 						<label for="loginUsername" class="sr-only">User Name</label>
-						<input type="text" class="form-control" name="loginUsername" id="loginUsername" placeholder="e.g. munirmahmud" required>
+						<input type="text" class="form-control" name="loginUsername" id="loginUsername" placeholder="e.g. munirmahmud" value="<?php getInputValue('loginUsername'); ?>" required>
+						<?php echo $account->getError(ErrorMessage::$loginFailed); ?>
 					</div>
 					<div class="form-group">
 						<label for="loginPassword" class="sr-only">Password</label>

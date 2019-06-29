@@ -13,6 +13,25 @@ class Account
     	$this->errorArray = [];    
     }
 
+    public function userLogin($un, $pw)
+    {
+    	$sql = "SELECT username, password FROM users WHERE username = '$un'";
+    	$query = mysqli_query($this->conn, $sql);
+    	$user = mysqli_fetch_assoc($query);
+
+    	if (mysqli_num_rows($query) == 1) {
+    		if (password_verify($pw, $user['password']) == true) {
+    			return true;
+    		} else {
+    			array_push($this->errorArray, ErrorMessage::$loginFailed);
+    			return;
+    		}
+    	} else {
+    		array_push($this->errorArray, ErrorMessage::$loginFailed);
+    		return;
+    	}
+    }
+
     public function register($un, $fn, $ln, $em, $em2, $pw, $pw2)
     {
 		// Set variable to validate form data

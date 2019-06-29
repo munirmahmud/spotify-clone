@@ -11,4 +11,6 @@ class ErrorMessage
     public static $passwordsDoNotMatch = "Your passwords dont't match.";
     public static $passwordCharacters = "Your password may only contain numbers and letters.";
     public static $passwordMinCharacters = "Your password must be at least 5 characters";
+
+    public static $loginFailed = "Your username or password was incorrect.";
 }
