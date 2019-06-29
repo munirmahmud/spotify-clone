@@ -39,45 +39,45 @@ class Account
 	// Form validation
 	private function validateUsername($un) {
 		if (strlen($un) > 25 || strlen($un) < 3) {
-			array_push($this->errorArray, Constants::$userNameCharacters);
+			array_push($this->errorArray, ErrorMessage::$userNameCharacters);
 			return;
 		}
 		// TODO: check if the username already exists
 	}
 	private function validateFirstName($fn) {
 		if (strlen($fn) > 25 || strlen($fn) < 2) {
-			array_push($this->errorArray, Constants::$firstNameCharacters);
+			array_push($this->errorArray, ErrorMessage::$firstNameCharacters);
 			return;
 		}
 	}
 	private function validateLastName($ln) {
 		if (strlen($ln) > 25 || strlen($ln) < 2) {
-			array_push($this->errorArray, Constants::$lastNameCharacters);
+			array_push($this->errorArray, ErrorMessage::$lastNameCharacters);
 			return;
 		}
 	}
 	private function validateEmail($em, $em2) {
 		if ($em != $em2) {
-			array_push($this->errorArray, Constants::$emailsDoNotMatch);
+			array_push($this->errorArray, ErrorMessage::$emailsDoNotMatch);
 			return;
 		}
 		if (!filter_var($em, FILTER_VALIDATE_EMAIL)) {
-			array_push($this->errorArray, Constants::$invalidEmail);
+			array_push($this->errorArray, ErrorMessage::$invalidEmail);
 			return;
 		}
 		//TODO: check if the email is already exists
 	}
 	private function validatePassword($pw, $pw2) {
 		if ($pw != $pw2) {
-			array_push($this->errorArray, Constants::$passwordsDoNotMatch);
+			array_push($this->errorArray, ErrorMessage::$passwordsDoNotMatch);
 			return;
 		}
 		if (preg_match('/[^a-zA-Z0-9]/', $pw)) {
-			array_push($this->errorArray, Constants::$passwordCharacters);
+			array_push($this->errorArray, ErrorMessage::$passwordCharacters);
 			return;
 		}
 		if (strlen($pw) > 80 || strlen($pw) < 5) {
-			array_push($this->errorArray, Constants::$passwordMinCharacters);
+			array_push($this->errorArray, ErrorMessage::$passwordMinCharacters);
 			return;
 		}
 	}
