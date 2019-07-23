@@ -7,34 +7,46 @@
     height: 100vh;
     width: 100%;
 }
+.background .container {
+  padding: 10% 0;
+}
 
-.inputContainer * {
+.input-container * {
   color: #FFFFFF;
 }
+.input-container .alert-danger {
+    color: #721c24 !important;
+    display: block;
+    margin-top: 6px;
+}
 
-.inputContainer .login-form,
-.inputContainer .register-form {
+.input-container {
+    border-right: 1px solid #fff;
+    padding-right: 30px;
+}
+.input-container .login-form,
+.input-container .register-form {
   display: none;
 }
-.inputContainer h2 {
+.input-container h2 {
 	font-size: 36px;
 	text-align: center;
 }
-.inputContainer button {
+.input-container button {
     width: 100%;
     background-color: transparent;
     border-color: #fff;
     text-align: center;
     border: 2px solid;
 }
-.inputContainer button:hover{
+.input-container button:hover{
   background-color: #fff;
   border-color: #fff;
   color: #222;
 }
-.inputContainer input[type="text"],
-.inputContainer input[type="email"],
-.inputContainer input[type="password"] {
+.input-container input[type="text"],
+.input-container input[type="email"],
+.input-container input[type="password"] {
 	background-color: transparent;
 	display: block;
 	width: 100%;
@@ -71,9 +83,29 @@
   cursor: pointer;
 }
 
-
-
-
+/*Login Text*/
+.login-text {
+  color: #FFFFFF;
+}
+.login-text h1{
+  color: #07d159;
+  font-size: 60;
+  font-weight: bold;
+}
+.login-text h2{
+  margin: 35px 0;
+}
+.login-text ul{
+  padding: 0;
+}
+.login-text ul li{
+    font-size: 20px;
+    list-style: none;
+    padding: 10px 0px 0 34px;
+    background-image: url(../images/icons/checkmark.png);
+    background-repeat: no-repeat;
+    background-position: 0 10px;
+}
 
 
 

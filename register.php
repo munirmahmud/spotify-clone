@@ -17,7 +17,7 @@ include_once('inc/bootstrap.php');
 	<div class="container">
 		<div class="row">
 			<div class="col-md-5">
-				<div id="inputContainer" class="inputContainer">
+				<div id="inputContainer" class="input-container">
 					<!-- Login Form -->
 					<form class="login-form" action="register.php" method="POST">
 						<h2>Login to your account</h2>
@@ -87,8 +87,16 @@ include_once('inc/bootstrap.php');
 				</div>
 			</div>
 
-			<div class="col-md-5">
-				
+			<div class="col-md-7">
+				<div class="login-text">
+					<h1>Get great music, right now</h1>
+					<h2>Listen to lots fo songs for free</h2>
+					<ul>
+						<li>Discover music you'll fall in love with</li>
+						<li>Create you own music list</li>
+						<li>Follow artists to keep up to date</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>	
